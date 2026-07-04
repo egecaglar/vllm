@@ -16,13 +16,13 @@ services:
     shm_size: ${SHM_SIZE:-10.24gb}
     gpus: all
     volumes:
-      - ${HF_HOME:?Set HF_HOME to the host Hugging Face cache path}:/root/.cache/huggingface
+      - ${HF_HOME:-${HOME}/.cache/huggingface}:/root/.cache/huggingface
     environment:
-      NODE_TYPE: ${NODE_TYPE:?Set NODE_TYPE to head or worker}
-      HEAD_NODE_IP: ${HEAD_NODE_IP:?Set HEAD_NODE_IP to the Ray head node IP}
+      NODE_TYPE: ${NODE_TYPE:-}
+      HEAD_NODE_IP: ${HEAD_NODE_IP:-}
       RAY_PORT: ${RAY_PORT:-6379}
       RAY_START_ARGS: ${RAY_START_ARGS:-}
-      VLLM_HOST_IP: ${VLLM_HOST_IP:?Set VLLM_HOST_IP to this node's reachable IP}
+      VLLM_HOST_IP: ${VLLM_HOST_IP:-}
       NCCL_SOCKET_IFNAME: ${NCCL_SOCKET_IFNAME:-}
       HF_TOKEN: ${HF_TOKEN:-}
       RAY_USAGE_STATS_ENABLED: ${RAY_USAGE_STATS_ENABLED:-0}

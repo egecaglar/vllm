@@ -11,7 +11,8 @@ which extends `vllm/vllm-openai:latest` with `ray[default,cgraph]`.
 - `NODE_TYPE`: `head` or `worker`
 - `HEAD_NODE_IP`: reachable IP address of the Ray head node
 - `VLLM_HOST_IP`: reachable IP address of the current node
-- `HF_HOME`: host path to the Hugging Face cache
+- `HF_HOME`: host path to the Hugging Face cache, defaults to
+  `${HOME}/.cache/huggingface`
 
 Optional:
 
@@ -100,3 +101,5 @@ Stop the container on each node:
 ```bash
 docker compose -f examples/ray_serving/docker-compose.yaml down
 ```
+
+`down` does not require the startup environment variables.
