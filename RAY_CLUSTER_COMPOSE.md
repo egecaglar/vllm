@@ -28,8 +28,8 @@ Run this on the machine that should be the Ray head:
 
 ```bash
 NODE_TYPE=head \
-HEAD_NODE_IP=10.0.0.80 \
-VLLM_HOST_IP=10.0.0.80 \
+HEAD_NODE_IP=100.100.1.4 \
+VLLM_HOST_IP=100.100.1.4 \
 HF_HOME=/home/ege/.cache/huggingface \
 NCCL_SOCKET_IFNAME=enp9s0 \
 docker compose -f examples/ray_serving/docker-compose.yaml up --build
@@ -45,7 +45,7 @@ Run this on each worker machine. `HEAD_NODE_IP` stays the same, but
 
 ```bash
 NODE_TYPE=worker \
-HEAD_NODE_IP=10.0.0.80 \
+HEAD_NODE_IP=100.100.1.4 \
 VLLM_HOST_IP=<WORKER_IP> \
 HF_HOME=/path/to/huggingface/cache \
 NCCL_SOCKET_IFNAME=<WORKER_INTERFACE> \
