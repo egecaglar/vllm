@@ -125,7 +125,7 @@ docker run \
     --network host \
     --name "${CONTAINER_NAME}" \
     --shm-size 10.24g \
-    --gpus all \
+    --runtime nvidia \
     -v "${PATH_TO_HF_HOME}:/root/.cache/huggingface" \
     "${ADDITIONAL_ARGS[@]}" \
     "${DOCKER_IMAGE}" -c "${RAY_START_CMD}"

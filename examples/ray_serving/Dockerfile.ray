@@ -1,0 +1,3 @@
+FROM vllm/vllm-openai:latest
+
+RUN uv pip install --system "ray[default,cgraph]"
