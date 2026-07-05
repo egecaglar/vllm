@@ -1,0 +1,8 @@
+#!\bin\bash
+
+NODE_TYPE=head \
+HEAD_NODE_IP=100.100.1.4 \
+VLLM_HOST_IP=100.100.1.4 \
+HF_HOME=/home/ege/.cache/huggingface \
+NCCL_SOCKET_IFNAME=tailscale0 \
+docker compose -f docker-compose.yaml up --build
